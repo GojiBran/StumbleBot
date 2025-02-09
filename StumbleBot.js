@@ -715,6 +715,29 @@
 
 //-----------------------------------------------------------------------------------------------------------------------------------
 
+        // Start Bustin command
+        if (wsmsg['text'] === ".bustin") {
+            // Randomly choose between 0, 1, or 2
+            const randomChoice = Math.floor(Math.random() * 3);
+
+            if (randomChoice === 0) {
+                // Send "BUSTIN BUSTIN..." followed by "BUSTIN MAKES ME FEEL GOOD!"
+                this._send('{"stumble":"msg","text":"BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN"}');
+                setTimeout(() => {
+                    this._send('{"stumble":"msg","text":"BUSTIN MAKES ME FEEL GOOD!"}');
+                }, 1000); // 1 second delay between messages
+            } else if (randomChoice === 1) {
+                // Send only "BUSTIN MAKES ME FEEL GOOD!"
+                this._send('{"stumble":"msg","text":"BUSTIN MAKES ME FEEL GOOD!"}');
+            } else if (randomChoice === 2) {
+                // Send a longer string of "BUSTIN BUSTIN..."
+                this._send('{"stumble":"msg","text":"BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN BUSTIN"}');
+            }
+        }
+        // End Bustin command
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start hippo
         if (wsmsg['text'] === ".hippo") {
             this._send('{"stumble":"msg","text": "https://i.imgur.com/GtvnStS.gif"}')
