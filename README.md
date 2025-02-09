@@ -1,8 +1,8 @@
 # StumbleBot
-StumbleChat Bot (Goji Edit)[yes the code is a mess]
+StumbleBot (yes the code is a mess)
 
-Script for adding youtube videos or commands to StumbleChat
--Goji, ChatGPT, Valhalla Team (original code)
+Play youtube videos from the chat box and/or add custom commands to StumbleChat
+-Goji
 
 The StumbleChat Bot is a UserScript written in JavaScript designed to enhance the user experience on StumbleChat, a web-based chat platform, by adding additional functionality for handling specific chat messages and enabling media playback within the chat room.
 
