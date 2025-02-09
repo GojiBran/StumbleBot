@@ -51,6 +51,12 @@
 
         // Goji Commands
 
+        // start Bot repo
+        if (wsmsg['text'] === ".bot") {
+            this._send('{"stumble":"msg","text":"https://github.com/thebranmaster/StumbleBot"}');
+        }
+        // end Bot repo
+
         //start template for word in sentence
         // Define the word to search for (case-insensitively)
         const targetWord = "yourWordHere";
