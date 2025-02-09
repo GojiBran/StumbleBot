@@ -38,18 +38,13 @@
         // Convert the incoming message to lowercase
         //const message = wsmsg['text'].toLowerCase();
 
-        // Generate a random number between 1 and 100.
-        if (wsmsg['text'] === ".number") {
-            setTimeout(() => {
-                this._send('{"stumble":"msg","text":"Generating random number between 1 and 100..."}');
-            }, 1000);
-            setTimeout(() => {
-                var randomNum = Math.floor(Math.random() * 100) + 1;
-                this._send('{"stumble":"msg","text":"The random number is: ' + randomNum + '"}');
-            }, 3000);
-        }
+//-----------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------        
 
-        // Goji Commands
+        // Bot Commands
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         // start Bot repo
         if (wsmsg['text'] === ".bot") {
@@ -57,18 +52,7 @@
         }
         // end Bot repo
 
-        //start template for word in sentence
-        // Define the word to search for (case-insensitively)
-        const targetWord = "yourWordHere";
-
-        // Create a dynamic regular expression to match the word as a whole word, case-insensitively
-        const regex = new RegExp(`\\b${targetWord}\\b`, "i");
-
-        // Check if the input text contains the target word
-        if (regex.test(wsmsg['text'])) {
-            // If the condition is met, send a response with a generic message
-            this._send('{"stumble":"msg","text": "your response here"}');
-        }
+//-----------------------------------------------------------------------------------------------------------------------------------        
 
         // Handle the "commands" and ".commands" commands to output the list of commands as a single message
         if (wsmsg['text'].toLowerCase() === 'commands' || wsmsg['text'].toLowerCase() === '.commands') {
@@ -109,6 +93,8 @@
             this._send(`{"stumble":"msg","text":"${commandsList.join(', ')}"}`);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //ping pong
         if (wsmsg['text'] === "ding") {
             setTimeout(() => this._send('{"stumble":"msg","text":"DONG"}'), 1000);
@@ -116,9 +102,13 @@
             setTimeout(() => this._send('{"stumble":"msg","text":"PONG"}'), 1000);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         if (wsmsg['text'] === ".bacon") {
             this._send('{"stumble":"msg","text":".yt bacon 45min"}');
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         if (wsmsg['text'].startsWith(".time")) {
             const userInput = wsmsg['text'].split(" ")[1]?.toLowerCase();
@@ -154,6 +144,8 @@
             this._send(`{"stumble":"msg","text":"${time} | ${formattedDate} | ${userInput?.toUpperCase() || 'UTC'}"}`);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         if (wsmsg['text'].startsWith(".zones")) {
             const timeZones = [
                 "PST", "EST", "CST", "MST", "UTC", "GMT", "BST", "CET", "EET", "IST",
@@ -179,6 +171,8 @@
             // Start sending chunks
             sendNextChunk();
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         if (wsmsg['text'].startsWith(".currency")) {
             const currencyConversions = {
@@ -216,6 +210,8 @@
             }
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         if (wsmsg['text'].startsWith(".floyd")) {
             const pinkFloydLyrics = [
                 { quote: "We don’t need no education.", song: "Another Brick in the Wall" },
@@ -251,6 +247,8 @@
                 this._send(`{"stumble":"msg","text":"– ${randomLyric.song}"}`);
             }, 1000);
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         if (wsmsg['text'].startsWith(".calc ")) {
             setTimeout(() => {
@@ -296,6 +294,8 @@
                 }
             }, 1000);
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         if (wsmsg['text'].startsWith(".convert ")) {
             const conversionFactors = {
@@ -397,10 +397,14 @@
             }
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //5-0
         if (wsmsg['text'] === "5-0") {
             setTimeout(() => this._send('{"stumble":"msg","text":"Cheese it!"}'), 1000);
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //set and packed
         if (wsmsg['text'] === "set") {
@@ -409,6 +413,8 @@
             setTimeout(() => this._send('{"stumble":"msg","text":"Let\'s toke!"}'), 1000);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         // bran and goji
         if (wsmsg['text'] === "bran") {
             setTimeout(() => this._send('{"stumble":"msg","text":"Bran farted on you!"}'), 1000);
@@ -416,12 +422,16 @@
             setTimeout(() => this._send('{"stumble":"msg","text":"Goji farted on you!"}'), 1000);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         // im on smoko
         if (wsmsg['text'] === "im on smoko") {
             setTimeout(() => this._send('{"stumble":"msg","text":"SO LEAVE EM ALONE!"}'), 1000);
         } else if (wsmsg['text'] === "smoko") {
             setTimeout(() => this._send('{"stumble":"msg","text":"THEY\'RE ON SMOKO! SO LEAVE EM ALONE!"}'), 1000);
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         // Start cheers commands list
         if (wsmsg['text'].toLowerCase() === 'cheers commands') {
@@ -448,6 +458,8 @@
         }
 
         // == End cheers commands list ==
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start cheers
         const cheersTriggers = {
@@ -487,6 +499,8 @@
             }, 1000); // 1-second delay
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start tokes
         const tokeTriggers = {
             // Toke and variations (in standard English)
@@ -503,6 +517,8 @@
                 this._send(`{"stumble":"msg","text":"${randomResponse}"}`);
             }, 1000); // 1-second delay
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start drinks
         // Array of possible user inputs that will trigger the drinks response
@@ -523,6 +539,8 @@
                 this._send('{"stumble":"msg","text": "https://i.imgur.com/rnbeGiE.gif"}');
             }, 1000); // 1-second delay
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start 420
         // Array of possible user inputs that will trigger the 420 response
@@ -548,11 +566,15 @@
             }, 1000); // 1-second delay
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start char
         if (wsmsg['text'] === ".char") // Char gif
         {
             this._send('{"stumble":"msg","text": "https://i.imgur.com/WVqt3hx.gif"}')
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start chilidog
         if (wsmsg['text'] === ".chilidog")
@@ -560,11 +582,15 @@
             this._send('{"stumble":"msg","text": "https://i.imgur.com/0A8zOPT.jpeg"}')
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start claptrick
         if (wsmsg['text'] === ".claptrick")
         {
             this._send('{"stumble":"msg","text": "https://i.imgur.com/hWUWU2P.gif"}')
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         // Start lyrics
         // Array of possible user inputs that will trigger the lyrics response
@@ -589,6 +615,8 @@
                 this._send('{"stumble":"msg","text": "I\'ll tell you how I became the prince of a town called Bel-Air 🎶"}');
             }, 4000); // 3-second delay
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         // Start Roll
         if (wsmsg['text'].startsWith(".roll")) {
@@ -627,14 +655,20 @@
             }
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start sentence commands
         if (/\blfg\b/i.test(wsmsg['text'])) {
             this._send('{"stumble":"msg","text": "LET\'S FUCKIN GO!!"}');
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         if (/\banal\b/i.test(wsmsg['text'])) {
             this._send('{"stumble":"msg","text": "IT\'S TIME FOR AN ASS FUCKIN!"}');
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start gg
         if (/\bgg\b/i.test(wsmsg['text'])) { // When gg
@@ -651,6 +685,8 @@
             // Send the random response
             this._send(`{"stumble":"msg","text": "${randomRsp}"}`);
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start dance
         if (wsmsg['text'] === ".dance") { // When dance
@@ -669,74 +705,97 @@
             this._send(`{"stumble":"msg","text": "${randomGif}"}`);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start hippo
         if (wsmsg['text'] === ".hippo") {
             this._send('{"stumble":"msg","text": "https://i.imgur.com/GtvnStS.gif"}')
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start oh hi mark
         if (wsmsg['text'] === "oh hi mark") {
             this._send('{"stumble":"msg","text": "https://i.imgur.com/fpObc5Y.gif"}')
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         // Start owner
         if (wsmsg['text'].startsWith(".owner")) {
             this._send('{"stumble":"msg","text": "YOU ARE NOW THE ROOM OWNER!"}');
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start jedi
         if (wsmsg['text'] === ".jedi") {
             this._send('{"stumble":"msg","text": "https://i.imgur.com/MCSGgcI.gif"}')
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start lola
         if (wsmsg['text'] === ".lola") {
             this._send('{"stumble":"msg","text": "https://i.imgur.com/flta89w.png"}')
         }
 
-        //start fredi
-        if (wsmsg['text'] === ".fredi") {
-            this._send('{"stumble":"msg","text": "https://i.imgur.com/Iwc1aFM.gif"}')
-        }
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start wizard
         if (wsmsg['text'] === ".wizard") {
             this._send('{"stumble":"msg","text": "https://i.imgur.com/E8CPWDV.gif"}')
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start packie
         if (wsmsg['text'] === ".packiedance") {
             this._send('{"stumble":"msg","text": "https://i.imgur.com/utGknCk.gif"}')
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start vato
         if (wsmsg['text'] === ".vato") {
             this._send('{"stumble":"msg","text": "https://i.imgur.com/L7IAM9c.gif"}')
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start baked
         if (wsmsg['text'] === ".baked") {
             this._send('{"stumble":"msg","text": "https://i.imgur.com/mPfCDtI.gif"}')
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start beans
         if (wsmsg['text'] === ".beans") {
             this._send('{"stumble":"msg","text": "https://i.imgur.com/YASZc8X.png"}')
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start dredd
         if (wsmsg['text'] === ".dredd") {
             this._send('{"stumble":"msg","text": "https://i.imgur.com/fstVLVH.gif"}')
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         if (wsmsg['text'] === "drugs got me fucked up") {
             this._send('{"stumble":"msg","text": "sluts got me drugged up, fuck"}')
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start car fart
         if (wsmsg['text'] === ".carfart") {
             this._send('{"stumble":"msg","text": "https://i.imgur.com/GxUAMV9.gif"}')
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start meatmeat
         if (wsmsg['text'] === ".meatmeat") {
@@ -756,6 +815,8 @@
             this._send(`{"stumble":"msg","text": "${randomGif}"}`);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start flamingo
         if (wsmsg['text'] === ".flamingo") { // When dance
             // Create an array of GIF URLs
@@ -771,6 +832,8 @@
             this._send(`{"stumble":"msg","text": "${randomGif}"}`);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start viper
         if (wsmsg['text'] === ".viper") {
             // Create an array of GIF URLs
@@ -784,6 +847,8 @@
             // Send the random GIF
             this._send(`{"stumble":"msg","text": "${randomGif}"}`);
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start spread em
         if (wsmsg['text'] === ".spreadem") {
@@ -799,6 +864,8 @@
             this._send(`{"stumble":"msg","text": "${randomGif}"}`);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start my hops
         if (/\bhops\b/i.test(wsmsg['text'])) { // When my hops
             // Create an array of responses
@@ -812,6 +879,8 @@
             // Send the random response
             this._send(`{"stumble":"msg","text": "${randomRsp}"}`);
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start wb
         if (/\bwb\b/i.test(wsmsg['text'])) { // When wb
@@ -837,6 +906,8 @@
             }, 3000); // 3-second delay
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start jroc
         if (wsmsg['text'] === "j.r.o.c") {
             // Create an array of responses
@@ -855,6 +926,8 @@
             this._send(`{"stumble":"msg","text": "${randomRsp}"}`);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start java ass
         if (/\bjava\b/i.test(wsmsg['text'])) { // When java
             // Create an array of responses
@@ -869,6 +942,8 @@
             this._send(`{"stumble":"msg","text": "${randomRsp}"}`);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start froggy
         if (wsmsg['text'] === ".froggy") {
             // Create an array of responses
@@ -882,6 +957,8 @@
             // Send the random response
             this._send(`{"stumble":"msg","text": "${randomRsp}"}`);
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start boobs
         // Define an array of commands that will trigger the same result
@@ -909,6 +986,8 @@
             // Send the random GIF
             this._send(`{"stumble":"msg","text": "${randomGif}"}`);
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start booty
         // Define an array of commands that will trigger the same result
@@ -943,6 +1022,8 @@
             this._send(`{"stumble":"msg","text": "${randombootyGif}"}`);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start gilf
         // Define an array of commands that will trigger the same result
         const triggerGilfCommands = [".gilf"];
@@ -963,6 +1044,8 @@
             this._send(`{"stumble":"msg","text": "${randomgilfGif}"}`);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start milf
         // Define an array of commands that will trigger the same result
         const triggerMilfCommands = [".milf"];
@@ -979,6 +1062,8 @@
             // Send the random GIF
             this._send(`{"stumble":"msg","text": "${randommilfGif}"}`);
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start dilf
         // Define an array of commands that will trigger the same result
@@ -1006,6 +1091,8 @@
             this._send(`{"stumble":"msg","text": "${randomdilfGif}"}`);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start fart
         // Array of commands that trigger the fart sequence
         const fartCommands = ['i farted', 'farted', 'who farted', 'someone farted', 'fart', 'toot', 'tooted', 'i tooted', 'who tooted'];
@@ -1026,6 +1113,8 @@
             setTimeout(() => this._send(`{"stumble":"msg","text":"${stinkResponse}"}`), 3000);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         // Initialize GojiBux value from localStorage or set to 1
         let gojiBuxValue = parseInt(localStorage.getItem('gojiBuxValue')) || 1;
 
@@ -1041,11 +1130,15 @@
             this._send(`{"stumble":"msg","text": "GojiBux is now worth ${gojiBuxValue.toLocaleString()} USD per 1 GBX!"}`);
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         // .$NARF command: Displays the negative value of GojiBux
         if (wsmsg['text'] === ".$NARF") {
             const narfValue = -gojiBuxValue; // $NRF is the negative of GBX
             this._send(`{"stumble":"msg","text": "$NRF is now worth ${narfValue.toLocaleString()} USD per 1 $NRF!"}`);
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         // Reset GojiBux command
         if (wsmsg['text'] === ".resetGojiBux") {
@@ -1057,6 +1150,8 @@
             // Send the message to confirm the reset
             this._send(`{"stumble":"msg","text": "GojiBux has been reset to ${gojiBuxValue} USD per 1 GBX."}`);
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start dialup dick long
         if (wsmsg['text'] === '.dialupdicklong') { // Its a, spaceshuttle, obviously..
@@ -1106,6 +1201,8 @@
             });
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start dialup dick
         if (wsmsg['text'] === '.dialupdick') { // Its a, spaceshuttle, obviously..
             const messages = [
@@ -1142,6 +1239,8 @@
             });
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start dialup chode
         if (wsmsg['text'] === '.dialupchode') { // Its a, space capsule, obviously..
             const messages = [
@@ -1171,6 +1270,8 @@
             });
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         if (wsmsg['text'].startsWith("play random song")) {
             // List of song links
             const songList = [
@@ -1185,6 +1286,8 @@
             // Send the randomly selected song as a message
             this._send(`{"stumble":"msg","text":"${randomSong}"}`);
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         // Define an array of keywords to check for YouTube-related commands
         var keywords = ['.youtube', '.video', '.play', '.yt'];
@@ -1224,6 +1327,8 @@
                 break;
             }
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
 
         //start dialup dick kong
         if (wsmsg['text'] === '.dialup dick kong') { // Its a, spaceshuttle, obviously..
@@ -1310,10 +1415,13 @@
             });
         }
 
+//-----------------------------------------------------------------------------------------------------------------------------------
+
         //start easter egg
         if (wsmsg['text'] === ".egg") {
             const lyrics = [
                 // Add your own lyrics here, one line per element in the array
+                ".youtube https://www.youtube.com/watch?v=dQw4w9WgXcQ",
                 "https://i.imgur.com/BTNIDBR.gif",
                 "We're no strangers to love",
                 "You know the rules and so do I",
@@ -1377,6 +1485,10 @@
                 }, index * 1000); // 1000ms delay per line
             });
         }
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------        
 
         if (!wsmsg) {
             console.error('Invalid JSON message received:', msg.data);
