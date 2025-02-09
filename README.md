@@ -1,5 +1,5 @@
 # StumbleBot
-StumbleChat Bot (Goji Edit)
+StumbleChat Bot (Goji Edit)[yes the code is a mess]
 
 Script for adding youtube videos or commands to StumbleChat
 -Goji, ChatGPT, Valhalla Team (original code)
