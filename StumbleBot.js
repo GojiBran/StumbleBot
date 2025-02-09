@@ -53,7 +53,7 @@
 
         // start Bot repo
         if (wsmsg['text'] === ".bot") {
-            this._send('{"stumble":"msg","text":"https://github.com/thebranmaster/StumbleBot"}');
+            this._send('{"stumble":"msg","text":"You can view or download the bot here: https://github.com/thebranmaster/StumbleBot"}');
         }
         // end Bot repo
 
