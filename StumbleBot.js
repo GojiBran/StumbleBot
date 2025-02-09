@@ -47,7 +47,16 @@
 
         // start Bot repo
         if (wsmsg['text'] === ".bot") {
-            this._send('{"stumble":"msg","text":"You can view or download the bot here: https://github.com/GojiBran/StumbleBot"}');
+        const lines = [
+            "You can view or download the bot here: https://github.com/GojiBran/StumbleBot",
+            "There is also a simplified version just for YouTube here: https://github.com/GojiBran/stumbletube"
+        ];
+
+        lines.forEach((line, index) => {
+            setTimeout(() => {
+                this._send(`{"stumble":"msg","text":"${line}"}`);
+            }, 1000 * index); // 1000ms delay between each line
+        });
         }
         // end Bot repo
 
